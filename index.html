@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>우리 둘의 홍콩 · 12월 5일–7일</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⛴️</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=IBM+Plex+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F4F7F6; --card:#FFFFFF; --ink:#0F1F1C; --muted:#53655F;
+  --harbour:#0F5A4E; --harbour-soft:#E2EDE9; --neon:#E5304A; --brass:#A87B1F;
+  --line:#CFDAD6; --shadow:0 1px 0 var(--line);
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0B1513; --card:#11201D; --ink:#E8F0ED; --muted:#9DB0AA;
+    --harbour:#5CC4AE; --harbour-soft:#15302A; --neon:#FF5C70; --brass:#E2B65A;
+    --line:#24403A; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0B1513; --card:#11201D; --ink:#E8F0ED; --muted:#9DB0AA;
+  --harbour:#5CC4AE; --harbour-soft:#15302A; --neon:#FF5C70; --brass:#E2B65A;
+  --line:#24403A; color-scheme:dark;
+}
+*{box-sizing:border-box}
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 70px)}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font-family:"IBM Plex Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+  font-size:16px;line-height:1.65;word-break:keep-all}
+img{max-width:100%;display:block}
+a{color:var(--harbour)}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(--neon);outline-offset:2px;border-radius:4px}
+.wrap{max-width:980px;margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:"Black Han Sans","IBM Plex Sans KR",sans-serif;font-weight:400;line-height:1.2;margin:0}
+
+/* ---------- Hero: neon signboard ---------- */
+.hero{padding:40px 0 28px}
+.hero-grid{display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:stretch}
+.sign{writing-mode:vertical-rl;text-orientation:upright;font-family:"Black Han Sans",sans-serif;
+  font-size:clamp(56px,11vw,104px);color:var(--neon);letter-spacing:.06em;
+  border:4px solid var(--neon);border-radius:14px;padding:18px 12px;
+  text-shadow:0 0 6px color-mix(in srgb,var(--neon) 70%,transparent),0 0 22px color-mix(in srgb,var(--neon) 45%,transparent);
+  box-shadow:0 0 18px color-mix(in srgb,var(--neon) 35%,transparent),inset 0 0 14px color-mix(in srgb,var(--neon) 25%,transparent);
+  animation:flicker 1.6s ease-out 1;align-self:start}
+.sign small{display:block;font-size:.18em;letter-spacing:.3em;margin-top:.6em;text-orientation:mixed}
+@keyframes flicker{0%{opacity:.15}8%{opacity:1}12%{opacity:.3}18%{opacity:1}24%{opacity:.5}30%,100%{opacity:1}}
+@media (prefers-reduced-motion: reduce){.sign{animation:none}}
+.hero h1{font-size:clamp(30px,5.4vw,52px);margin-bottom:6px}
+.hero .dates{color:var(--muted);font-size:17px;margin:0 0 18px}
+.hero-photo{position:relative;border-radius:12px;overflow:hidden;background:var(--harbour-soft);aspect-ratio:16/7;margin-bottom:16px}
+.hero-photo img{width:100%;height:100%;object-fit:cover}
+.credit{font-size:12px;color:var(--muted)}
+.hero-photo .credit{position:absolute;right:8px;bottom:6px;background:color-mix(in srgb,var(--card) 85%,transparent);padding:1px 6px;border-radius:4px}
+
+/* boarding-pass stubs */
+.stubs{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.stub{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px;position:relative}
+.stub::after{content:"";position:absolute;top:10px;bottom:10px;right:64px;border-right:2px dashed var(--line)}
+.stub .route{font-weight:700;font-size:15px}
+.stub .times{font-family:"Black Han Sans",sans-serif;font-size:24px;letter-spacing:.02em}
+.stub .meta{font-size:13px;color:var(--muted)}
+.stub .no{position:absolute;right:10px;top:50%;transform:translateY(-50%);writing-mode:vertical-rl;font-weight:700;color:var(--harbour);font-size:14px}
+.stay{margin-top:12px;font-size:14px;color:var(--muted)}
+.stay strong{color:var(--ink)}
+
+/* ---------- Day tabs ---------- */
+.tabs{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:var(--paper);border-bottom:1px solid var(--line)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:11;background:var(--paper)}
+.tabs .wrap{display:flex;gap:6px;overflow-x:auto;padding-top:10px;padding-bottom:10px}
+.tab{flex:1 0 auto;border:1px solid var(--line);background:var(--card);color:var(--ink);font:inherit;font-weight:500;
+  padding:8px 14px;border-radius:999px;cursor:pointer;white-space:nowrap}
+.tab[aria-selected="true"]{background:var(--harbour);border-color:var(--harbour);color:var(--paper)}
+.tab .theme{font-size:13px;opacity:.8;margin-left:4px}
+
+/* ---------- Timeline ---------- */
+.day{padding:28px 0 8px}
+.day[hidden]{display:none}
+.day-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:18px}
+.day-head h2{font-size:clamp(26px,4vw,34px)}
+.day-head p{margin:0;color:var(--muted)}
+.stops{list-style:none;margin:0;padding:0;position:relative}
+.stops::before{content:"";position:absolute;left:62px;top:8px;bottom:8px;width:2px;background:var(--line)}
+.stop{display:grid;grid-template-columns:52px 22px 1fr;gap:0 10px;padding:0 0 26px}
+.time{font-weight:700;font-variant-numeric:tabular-nums;text-align:right;padding-top:1px;font-size:15px}
+.dot{width:12px;height:12px;border-radius:50%;background:var(--paper);border:3px solid var(--harbour);margin:6px auto 0;position:relative;z-index:1}
+.stop.key .dot{border-color:var(--neon);background:var(--neon)}
+.body h3{font-family:"IBM Plex Sans KR",sans-serif;font-weight:700;font-size:18px;margin-bottom:2px}
+.body p{margin:2px 0 0;max-width:62ch}
+.body .tip{margin-top:8px;padding:8px 12px;border-left:3px solid var(--brass);background:var(--harbour-soft);border-radius:0 6px 6px 0;font-size:14px;max-width:62ch}
+.photo{margin:10px 0 0;max-width:520px}
+.photo .frame{border-radius:10px;overflow:hidden;background:var(--harbour-soft);aspect-ratio:3/2}
+.photo img{width:100%;height:100%;object-fit:cover}
+.photo figcaption{margin-top:3px}
+.links{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.links a{font-size:13px;text-decoration:none;border:1px solid var(--line);background:var(--card);padding:4px 10px;border-radius:999px;color:var(--ink)}
+.links a.book{border-color:var(--neon);color:var(--neon);font-weight:700}
+.links a:hover{border-color:var(--harbour)}
+
+/* ---------- Booking ---------- */
+section.block{padding:36px 0 8px;border-top:1px solid var(--line);margin-top:20px}
+section.block > .wrap > h2{font-size:clamp(24px,3.6vw,32px);margin-bottom:6px}
+section.block > .wrap > p.lead{color:var(--muted);margin:0 0 20px}
+.book-list{display:grid;gap:14px}
+.book-item{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+.book-item header{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:baseline}
+.book-item h3{font-family:"IBM Plex Sans KR",sans-serif;font-weight:700;font-size:18px}
+.when{font-size:13px;font-weight:700;color:var(--harbour)}
+.book-item ol{margin:10px 0 0;padding-left:20px}
+.book-item li{margin:3px 0}
+.price{font-size:14px;color:var(--muted);margin-top:6px}
+
+/* checklist */
+.check{list-style:none;padding:0;margin:0;display:grid;gap:6px}
+.check label{display:flex;gap:12px;align-items:flex-start;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px;cursor:pointer}
+.check input{width:20px;height:20px;margin-top:3px;accent-color:var(--harbour);flex:none}
+.check input:checked + span{text-decoration:line-through;color:var(--muted)}
+.check small{display:block;color:var(--muted);text-decoration:none}
+.progress{font-weight:700;color:var(--harbour);margin-bottom:10px}
+
+.notes{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.note{border-top:3px solid var(--harbour);padding-top:10px}
+.note h3{font-family:"IBM Plex Sans KR",sans-serif;font-weight:700;font-size:16px;margin-bottom:4px}
+.note p{margin:0;font-size:15px}
+
+footer{padding:40px 0 50px;color:var(--muted);font-size:13px}
+
+@media (max-width:640px){
+  .hero-grid{grid-template-columns:1fr}
+  .sign{writing-mode:horizontal-tb;font-size:52px;padding:6px 16px;justify-self:start}
+  .sign small{display:inline;margin:0 0 0 10px}
+  .stubs{grid-template-columns:1fr}
+  .stops::before{left:50px}
+  .stop{grid-template-columns:42px 18px 1fr;gap:0 8px}
+  .time{font-size:14px}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div class="sign" aria-hidden="true">홍콩<small>HONG KONG</small></div>
+    <div>
+      <h1>우리 둘의 홍콩</h1>
+      <p class="dates">2026년 12월 5일(토) – 7일(월), 2박 3일</p>
+      <figure class="hero-photo" style="margin:0 0 16px" data-wiki="Victoria_Harbour">
+        <img alt="빅토리아 항구 야경" loading="eager">
+        <figcaption class="credit"></figcaption>
+      </figure>
+      <div class="stubs">
+        <div class="stub">
+          <div class="route">인천 T1 → 홍콩 T1</div>
+          <div class="times">10:00 → 13:15</div>
+          <div class="meta">12월 5일(토) · 캐세이퍼시픽</div>
+          <div class="no">CX417</div>
+        </div>
+        <div class="stub">
+          <div class="route">홍콩 T1 → 인천 T1</div>
+          <div class="times">20:05 → 00:40</div>
+          <div class="meta">12월 7일(월) · 도착은 8일 새벽</div>
+          <div class="no">CX426</div>
+        </div>
+      </div>
+      <p class="stay">숙소 <strong>The Salisbury – YMCA of Hong Kong</strong> (침사추이) · 체크인 12/5 15:00, 체크아웃 12/7 11:00</p>
+    </div>
+  </div>
+</header>
+
+<nav class="tabs" aria-label="날짜 선택">
+  <div class="wrap" role="tablist">
+    <button class="tab" role="tab" id="t1" aria-controls="d1" aria-selected="true">12/5 토<span class="theme">센트럴 크리스마스</span></button>
+    <button class="tab" role="tab" id="t2" aria-controls="d2" aria-selected="false">12/6 일<span class="theme">디즈니랜드</span></button>
+    <button class="tab" role="tab" id="t3" aria-controls="d3" aria-selected="false">12/7 월<span class="theme">피크 &amp; 귀국</span></button>
+    <a class="tab" href="#booking" style="text-decoration:none">예약 방법</a>
+    <a class="tab" href="#checklist" style="text-decoration:none">준비물</a>
+  </div>
+</nav>
+
+<main>
+<!-- ================= DAY 1 ================= -->
+<section class="day wrap" id="d1" role="tabpanel" aria-labelledby="t1">
+  <div class="day-head"><h2>1일차 · 도착하고 바로 크리스마스</h2><p>12월 5일 토요일</p></div>
+  <ol class="stops">
+    <li class="stop"><div class="time">13:15</div><div class="dot"></div><div class="body">
+      <h3>홍콩공항 도착</h3>
+      <p>입국 후 침사추이까지 공항버스 A21(약 1시간, 저렴) 또는 AEL로 구룡역 → 택시(가장 빠름).</p>
+      <div class="links"><a href="https://www.google.com/maps/search/?api=1&query=Hong+Kong+International+Airport+Terminal+1" target="_blank" rel="noopener">지도</a></div>
+    </div></li>
+    <li class="stop"><div class="time">15:00</div><div class="dot"></div><div class="body">
+      <h3>The Salisbury YMCA 체크인</h3>
+      <p>짐 풀고 잠깐 쉬기. 저녁엔 계속 걸어 다니니 편한 신발로.</p>
+      <div class="links"><a href="https://www.google.com/maps/search/?api=1&query=The+Salisbury+YMCA+of+Hong+Kong" target="_blank" rel="noopener">지도</a></div>
+    </div></li>
+    <li class="stop key"><div class="time">17:00</div><div class="dot"></div><div class="body">
+      <h3>스타페리 타고 센트럴로</h3>
+      <p>숙소 바로 앞 침사추이 선착장에서 출발, 약 10분. 해 지는 시간에 맞춰 타면 항구 풍경이 제일 예뻐요.</p>
+      <figure class="photo" data-wiki="Star_Ferry"><div class="frame"><img alt="스타페리" loading="lazy"></div><figcaption class="credit"></figcaption></figure>
+      <div class="tip">예약 필요 없음. 옥토퍼스 카드나 동전으로 탑승.</div>
+      <div class="links"><a href="https://www.google.com/maps/search/?api=1&query=Tsim+Sha+Tsui+Star+Ferry+Pier" target="_blank" rel="noopener">지도</a><a href="https://www.starferry.com.hk/" target="_blank" rel="noopener">스타페리 공식</a></div>
+    </div></li>
+    <li class="stop key"><div class="time">17:30</div><div class="dot"></div><div class="body">
+      <h3>센트럴 크리스마스 마켓</h3>
+      <p>스태추 스퀘어 가든에 22m 크리스마스 트리, 증기기관차 포토존, 유럽풍 마켓 부스가 열려요.</p>
+      <figure class="photo" data-wiki="Statue_Square"><div class="frame"><img alt="스태추 스퀘어" loading="lazy"></div><figcaption class="credit"></figcaption></figure>
+      <div class="tip">마켓은 목~일요일만 열려요. 토요일은 12:00–22:00. 무료 입장.</div>
+      <div class="links"><a href="https://www.google.com/maps/search/?api=1&query=Statue+Square+Garden+Central+Hong+Kong" target="_blank" rel="noopener">지도</a><a href="https://www.discoverhongkong.com/" target="_blank" rel="noopener">윈터페스트 정보</a></div>
+    </div></li>
+    <li class="stop"><div class="time">19:00</div><div class="dot"></div><div class="body">
+      <h3>센트럴 건물 라이트쇼 &amp; 저녁</h3>
+      <p>HSBC·중국은행 등 주변 건물 외벽에 펼쳐지는 라이트쇼. 19:00–23:00, 30분 간격. 쇼 사이에 근처에서 저녁 식사.</p>
+      <div class="tip">관람 추천 위치: 스태추 스퀘어 가든 남쪽.</div>
+    </div></li>
+    <li class="stop"><div class="time">21:00</div><div class="dot"></div><div class="body">
+      <h3>스타페리로 침사추이 복귀</h3>
+      <p>밤배에서 보는 홍콩섬 스카이라인.</p>
+    </div></li>
+    <li class="stop key"><div class="time">21:15</div><div class="dot"></div><div class="body">
+      <h3>침사추이 윈터원더랜드 라이트쇼</h3>
+      <p>문화센터 시계탑의 크리스마스 콘서트 쇼, 예술박물관·우주박물관 외벽의 오로라 쇼. 숙소에서 걸어서 몇 분.</p>
+      <figure class="photo" data-wiki="Hong_Kong_Cultural_Centre"><div class="frame"><img alt="홍콩 문화센터" loading="lazy"></div><figcaption class="credit"></figcaption></figure>
+      <div class="tip">매일 19:00–23:00. 무료. 예전의 ‘심포니 오브 라이트’(8시 쇼)는 2026년 11월에 종료됐어요.</div>
+      <div class="links"><a href="https://www.google.com/maps/search/?api=1&query=Hong+Kong+Cultural+Centre" target="_blank" rel="noopener">지도</a></div>
+    </div></li>
+  </ol>
+</section>
+
+<!-- ================= DAY 2 ================= -->
+<section class="day wrap" id="d2" role="tabpanel" aria-labelledby="t2" hidden>
+  <div class="day-head"><h2>2일차 · 디즈니랜드 하루 종일</h2><p>12월 6일 일요일</p></div>
+  <ol class="stops">
+    <li class="stop"><div class="time">08:30</div><div class="dot"></div><div class="body">
+      <h3>숙소 출발</h3>
+      <p>MTR: 침사추이역 → 라이킹역(퉁청선 환승) → 써니베이역(디즈니선 환승) → 디즈니랜드 리조트역. 약 45–50분. 둘이면 택시도 괜찮아요.</p>
+      <div class="tip">일요일이라 붐벼요. 오픈 시간 전에 도착하는 게 핵심.</div>
+      <div class="links"><a href="https://www.google.com/maps/dir/?api=1&origin=The+Salisbury+YMCA+of+Hong+Kong&destination=Disneyland+Resort+Station&travelmode=transit" target="_blank" rel="noopener">대중교통 길찾기</a></div>
+    </div></li>
+    <li class="stop key"><div class="time">10:00</div><div class="dot"></div><div class="body">
+      <h3>홍콩 디즈니랜드 입장</h3>
+      <p>‘A Disney Christmas’ 시즌(11/20–1/3). 메인 스트리트 트리와 인공 눈, 크리스마스 복장 캐릭터. 인기 어트랙션부터 먼저.</p>
+      <div class="tip">개장 시간은 날짜마다 달라요. 전날 공식 앱에서 확인하세요.</div>
+      <div class="links"><a class="book" href="https://www.hongkongdisneyland.com/" target="_blank" rel="noopener">입장권 예약</a><a href="#booking">예약 방법 보기</a></div>
+    </div></li>
+    <li class="stop"><div class="time">오후</div><div class="dot"></div><div class="body">
+      <h3>겨울왕국 구역 (World of Frozen)</h3>
+      <p>크리스마스 기간 아렌델 윈터 마켓과 눈 내리는 연출.</p>
+    </div></li>
+    <li class="stop key"><div class="time">공연</div><div class="dot"></div><div class="body">
+      <h3>디즈니 크리스마스 라이브 콘서트</h3>
+      <p>11/21–22, 12/5–6 두 주말만 열리는 공연. 두 분 가는 날이 마침 공연일이에요.</p>
+      <div class="tip">별도 예약이 필요할 수 있어요. 공식 사이트·앱에서 공연 시간과 좌석 확인.</div>
+    </div></li>
+    <li class="stop"><div class="time">저녁</div><div class="dot"></div><div class="body">
+      <h3>나이트쇼 ‘Momentous’</h3>
+      <p>성 앞 라이트·불꽃 쇼로 하루 마무리. 30분 전쯤 자리 잡기.</p>
+    </div></li>
+    <li class="stop"><div class="time">밤</div><div class="dot"></div><div class="body">
+      <h3>숙소 복귀</h3>
+      <p>쇼 끝나면 역이 몰리니 조금 기다렸다 타거나 택시로.</p>
+    </div></li>
+  </ol>
+</section>
+
+<!-- ================= DAY 3 ================= -->
+<section class="day wrap" id="d3" role="tabpanel" aria-labelledby="t3" hidden>
+  <div class="day-head"><h2>3일차 · 빈손으로 홍콩섬, 그리고 귀국</h2><p>12월 7일 월요일</p></div>
+  <ol class="stops">
+    <li class="stop"><div class="time">11:00</div><div class="dot"></div><div class="body">
+      <h3>체크아웃</h3>
+      <p>짐 챙겨서 택시로 홍콩역(센트럴, IFC몰 아래)까지 약 15분.</p>
+    </div></li>
+    <li class="stop key"><div class="time">11:30</div><div class="dot"></div><div class="body">
+      <h3>홍콩역 도심 체크인</h3>
+      <p>캐세이퍼시픽 짐을 여기서 미리 부치면 오후는 빈손. 운영 06:00–23:00.</p>
+      <div class="tip">조건: ① 캐세이 앱/웹 온라인 체크인 먼저 (12/6 20:05부터 가능) ② AEL 승차권 필요.</div>
+      <div class="links"><a href="https://www.google.com/maps/search/?api=1&query=Hong+Kong+Station+Airport+Express" target="_blank" rel="noopener">지도</a><a href="https://www.mtr.com.hk/en/customer/services/complom_checkin.html" target="_blank" rel="noopener">MTR 도심 체크인 안내</a></div>
+    </div></li>
+    <li class="stop key"><div class="time">12:00</div><div class="dot"></div><div class="body">
+      <h3>피크트램 → 빅토리아 피크</h3>
+      <p>130년 넘은 산악 트램을 타고 정상으로. 스카이 테라스 428에서 홍콩 전경. 평일이라 주말보다 덜 붐벼요.</p>
+      <figure class="photo" data-wiki="Peak_Tram"><div class="frame"><img alt="피크트램" loading="lazy"></div><figcaption class="credit"></figcaption></figure>
+      <div class="links"><a href="https://www.google.com/maps/search/?api=1&query=Peak+Tram+Garden+Road+Terminus" target="_blank" rel="noopener">지도 (하부 정류장)</a><a class="book" href="https://www.thepeak.com.hk/" target="_blank" rel="noopener">티켓 예약</a></div>
+    </div></li>
+    <li class="stop"><div class="time">14:00</div><div class="dot"></div><div class="body">
+      <h3>딤섬 점심</h3>
+      <p>센트럴·성완에서 얌차. 하가우(새우), 시우마이, 차슈바오는 기본.</p>
+      <figure class="photo" data-wiki="Dim_sum"><div class="frame"><img alt="딤섬" loading="lazy"></div><figcaption class="credit"></figcaption></figure>
+    </div></li>
+    <li class="stop"><div class="time">15:00</div><div class="dot"></div><div class="body">
+      <h3>미드레벨 에스컬레이터 &amp; 소호</h3>
+      <p>세계에서 가장 긴 야외 에스컬레이터를 타고 올라가며 벽화 골목과 카페 구경. 시간 되면 타이쿤(옛 경찰서 개조 문화공간)도.</p>
+      <figure class="photo" data-wiki="Central–Mid-Levels_escalator"><div class="frame"><img alt="미드레벨 에스컬레이터" loading="lazy"></div><figcaption class="credit"></figcaption></figure>
+      <div class="links"><a href="https://www.google.com/maps/search/?api=1&query=Central+Mid-Levels+Escalator" target="_blank" rel="noopener">지도</a><a href="https://www.google.com/maps/search/?api=1&query=Tai+Kwun+Hong+Kong" target="_blank" rel="noopener">타이쿤 지도</a></div>
+    </div></li>
+    <li class="stop"><div class="time">16:30</div><div class="dot"></div><div class="body">
+      <h3>딩딩 트램</h3>
+      <p>2층 맨 앞자리에 앉아 시내 구경. 타는 곳 아무 데서나, 내릴 때 결제.</p>
+      <figure class="photo" data-wiki="Hong_Kong_Tramways"><div class="frame"><img alt="홍콩 트램" loading="lazy"></div><figcaption class="credit"></figcaption></figure>
+    </div></li>
+    <li class="stop key"><div class="time">17:30</div><div class="dot"></div><div class="body">
+      <h3>홍콩역에서 AEL로 공항</h3>
+      <p>약 24분. 짐은 이미 부쳤으니 몸만 타면 돼요.</p>
+      <div class="tip">공항 체크인 마감 19:05. 늦어도 18:00엔 공항 도착.</div>
+    </div></li>
+    <li class="stop"><div class="time">18:00</div><div class="dot"></div><div class="body">
+      <h3>면세점 &amp; 출국</h3>
+      <p>CX426 20:05 출발, 인천 도착 12/8 00:40.</p>
+    </div></li>
+  </ol>
+</section>
+
+<!-- ================= BOOKING ================= -->
+<section class="block" id="booking">
+  <div class="wrap">
+    <h2>예약 방법</h2>
+    <p class="lead">미리 해둘 것은 디즈니, 피크트램, 캐세이 온라인 체크인 세 가지. 나머지는 현장에서 돼요.</p>
+    <div class="book-list">
+
+      <article class="book-item">
+        <header><h3>홍콩 디즈니랜드 입장권</h3><span class="when">지금 바로 · 12/6 사용</span></header>
+        <ol>
+          <li>공식 사이트·앱 또는 클룩/KKday에서 <strong>12월 6일 날짜 지정 1일권</strong> 2매 구매.</li>
+          <li>클룩 등 제3자 판매처에서 샀다면 <strong>공식 사이트에서 방문일 등록</strong>을 꼭 따로 해야 입장 가능.</li>
+          <li>크리스마스 라이브 콘서트 예약 여부와 공연 시간 확인.</li>
+          <li>줄 서기 싫으면 ‘프리미어 액세스’(유료 빠른 입장) 추가 고려.</li>
+        </ol>
+        <p class="price">요금은 날짜별 4단계 가격제라 12/6 가격은 구매 화면에서 확인. 2026년 6월에 인상됐어요.</p>
+        <div class="links"><a class="book" href="https://www.hongkongdisneyland.com/" target="_blank" rel="noopener">공식 사이트</a><a href="https://www.klook.com/ko/" target="_blank" rel="noopener">클룩</a><a href="https://www.kkday.com/ko" target="_blank" rel="noopener">KKday</a></div>
+      </article>
+
+      <article class="book-item">
+        <header><h3>피크트램 + 스카이 테라스 428</h3><span class="when">출발 전 · 12/7 사용</span></header>
+        <ol>
+          <li>공식 웹스토어에서 ‘Sky Pass’(왕복 트램 + 전망대) 구매. 매표소 줄을 건너뜀.</li>
+          <li>대기 줄까지 건너뛰려면 ‘Fast Track’(Ruby Pass) 조합.</li>
+        </ol>
+        <p class="price">트램 왕복만: 평일 HK$88. Sky Pass 온라인: HK$149부터. 스카이 테라스 운영 08:30–22:00.</p>
+        <div class="links"><a class="book" href="https://www.thepeak.com.hk/" target="_blank" rel="noopener">피크 공식</a></div>
+      </article>
+
+      <article class="book-item">
+        <header><h3>캐세이 온라인 체크인 &amp; 도심 체크인</h3><span class="when">12/6 20:05 이후</span></header>
+        <ol>
+          <li>출발 24시간 전부터 캐세이 앱에서 두 사람 온라인 체크인 (디즈니 다녀와서 숙소에서).</li>
+          <li>12/7 체크아웃 후 홍콩역 도심 체크인 구역에서 셀프 백드롭.</li>
+          <li>AEL 승차권 준비: 역 창구, 클룩/KKday QR 티켓 등.</li>
+        </ol>
+        <p class="price">AEL 홍콩역→공항 성인 약 HK$120. 2026년 5월 말부터 AEL도 비자·마스터 컨택리스 카드 결제 가능.</p>
+        <div class="links"><a href="https://www.cathaypacific.com/" target="_blank" rel="noopener">캐세이퍼시픽</a><a href="https://www.mtr.com.hk/en/customer/services/complom_checkin.html" target="_blank" rel="noopener">도심 체크인 안내</a></div>
+      </article>
+
+      <article class="book-item">
+        <header><h3>교통 결제</h3><span class="when">현장</span></header>
+        <ol>
+          <li>MTR 지하철·AEL: 비자/마스터 컨택리스 카드를 개찰구에 바로 태그 가능.</li>
+          <li>스타페리·트램·버스까지 한 장으로 편하게 하려면 옥토퍼스 카드(실물 또는 아이폰 지갑).</li>
+          <li>해외결제 수수료 없는 카드를 쓰면 이득.</li>
+        </ol>
+      </article>
+
+      <article class="book-item">
+        <header><h3>윈터페스트 라이트쇼 &amp; 마켓</h3><span class="when">예약 불필요</span></header>
+        <ol>
+          <li>센트럴 크리스마스 마켓: 목~일, 토·일 12:00–22:00.</li>
+          <li>센트럴 건물 라이트쇼: 매일 19:00–23:00, 30분 간격.</li>
+          <li>침사추이 라이트쇼(문화센터·우주박물관): 매일 19:00–23:00.</li>
+        </ol>
+        <div class="links"><a href="https://www.discoverhongkong.com/" target="_blank" rel="noopener">홍콩관광청</a></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CHECKLIST ================= -->
+<section class="block" id="checklist">
+  <div class="wrap">
+    <h2>준비 체크리스트</h2>
+    <p class="lead">체크한 내용은 이 기기 브라우저에 저장돼요.</p>
+    <p class="progress" id="progress"></p>
+    <ul class="check" id="check">
+      <li><label><input type="checkbox" data-k="disney"><span>디즈니 12/6 입장권 2매 구매 + 방문일 등록<small>제3자 구매 시 공식 사이트 등록 필수</small></span></label></li>
+      <li><label><input type="checkbox" data-k="concert"><span>디즈니 크리스마스 콘서트 예약 확인</span></label></li>
+      <li><label><input type="checkbox" data-k="peak"><span>피크트램 Sky Pass 구매 (12/7)</span></label></li>
+      <li><label><input type="checkbox" data-k="cxcheckin"><span>캐세이 온라인 체크인<small>12/6 20:05부터 가능</small></span></label></li>
+      <li><label><input type="checkbox" data-k="ael"><span>AEL 승차권 (홍콩역 → 공항, 2인)</span></label></li>
+      <li><label><input type="checkbox" data-k="card"><span>컨택리스 카드 또는 옥토퍼스 카드 준비</span></label></li>
+      <li><label><input type="checkbox" data-k="passport"><span>두 사람 여권 유효기간 6개월 이상 확인</span></label></li>
+      <li><label><input type="checkbox" data-k="plug"><span>멀티 어댑터 (홍콩은 영국식 3핀 G타입)</span></label></li>
+      <li><label><input type="checkbox" data-k="data"><span>eSIM 또는 로밍</span></label></li>
+      <li><label><input type="checkbox" data-k="jacket"><span>얇은 겉옷 (12월 18℃ 안팎, 피크는 바람)</span></label></li>
+    </ul>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap">
+    <h2>알아둘 것</h2>
+    <div class="notes" style="margin-top:14px">
+      <div class="note"><h3>8시 쇼는 이제 없어요</h3><p>‘심포니 오브 라이트’는 22년 만에 종료. 대신 윈터페스트 라이트쇼가 센트럴·침사추이에서 매일 열려요.</p></div>
+      <div class="note"><h3>귀국일 시간 관리</h3><p>공항 체크인 마감 19:05. 짐은 홍콩역에서 미리 부치고, 17:30쯤 AEL 탑승.</p></div>
+      <div class="note"><h3>일요일 디즈니</h3><p>주말이라 붐벼요. 개장 전 도착, 인기 어트랙션 먼저, 나이트쇼 자리는 30분 전에.</p></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>시간과 요금은 2026년 11월 기준이며 바뀔 수 있어요. 출발 전 각 공식 사이트에서 다시 확인하세요.</p>
+    <p>사진: Wikipedia / Wikimedia Commons (각 사진 아래 링크에서 저작자·라이선스 확인).</p>
+  </div>
+</footer>
+
+<script>
+// ---------- Tabs ----------
+(function(){
+  const tabs=[...document.querySelectorAll('[role="tab"]')];
+  function select(id){
+    tabs.forEach(t=>{
+      const on=t.id===id;
+      t.setAttribute('aria-selected',on);
+      const p=document.getElementById(t.getAttribute('aria-controls'));
+      if(p) p.hidden=!on;
+    });
+    try{ if(location.hash!=='#'+id.replace('t','day')) history.replaceState(null,'','#'+id.replace('t','day')); }catch(e){}
+  }
+  tabs.forEach(t=>t.addEventListener('click',()=>{select(t.id);window.scrollTo({top:document.querySelector('.tabs').offsetTop,behavior:'smooth'});}));
+  // 시작 탭: 주소(#day2) > 여행 당일(홍콩 시간) > 1일차
+  const m=location.hash.match(/^#day([123])$/);
+  let start='t1';
+  if(m) start='t'+m[1];
+  else{
+    const hk=new Date(Date.now()+8*3600e3).toISOString().slice(0,10);
+    start={'2026-12-06':'t2','2026-12-07':'t3'}[hk]||'t1';
+  }
+  select(start);
+  window.addEventListener('hashchange',()=>{const h=location.hash.match(/^#day([123])$/);if(h)select('t'+h[1]);});
+})();
+
+// ---------- Wikipedia photos ----------
+document.querySelectorAll('[data-wiki]').forEach(async fig=>{
+  const img=fig.querySelector('img'), cap=fig.querySelector('figcaption');
+  try{
+    const r=await fetch('https://en.wikipedia.org/api/rest_v1/page/summary/'+encodeURIComponent(fig.dataset.wiki));
+    if(!r.ok) throw 0;
+    const j=await r.json();
+    const thumb=j.thumbnail&&j.thumbnail.source;
+    if(!thumb) throw 0;
+    const big=thumb.replace(/\/\d+px-/,'/960px-');
+    img.onerror=()=>{img.onerror=null;img.src=thumb;};
+    img.src=big;
+    const page=j.content_urls&&j.content_urls.desktop&&j.content_urls.desktop.page;
+    cap.innerHTML=page?'사진: <a href="'+page+'" target="_blank" rel="noopener">Wikipedia</a>':'사진: Wikipedia';
+  }catch(e){
+    fig.style.display='none';
+  }
+});
+
+// ---------- Checklist ----------
+(function(){
+  const KEY='hk2026-checklist';
+  let state={};
+  try{state=JSON.parse(localStorage.getItem(KEY))||{};}catch(e){state={};}
+  const boxes=[...document.querySelectorAll('#check input')];
+  const prog=document.getElementById('progress');
+  function update(){
+    const done=boxes.filter(b=>b.checked).length;
+    prog.textContent=done+' / '+boxes.length+' 완료';
+  }
+  boxes.forEach(b=>{
+    b.checked=!!state[b.dataset.k];
+    b.addEventListener('change',()=>{
+      state[b.dataset.k]=b.checked;
+      try{localStorage.setItem(KEY,JSON.stringify(state));}catch(e){}
+      update();
+    });
+  });
+  update();
+})();
+</script>
+</body>
+</html>
